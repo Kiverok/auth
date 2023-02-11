@@ -1,10 +1,9 @@
+import { Navigate } from "react-router"
 
 
 const HomePage = () => {
   return (
-  <div>
-    <h1>HomePage</h1>
-  </div>
+  <Navigate to="/login" />
   )
 }
 
