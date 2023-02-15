@@ -1,18 +1,24 @@
 import { useDispatch } from "react-redux"
-import form from "./form"
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import Form from "./Form"
 import { setUser } from "../store/slices/userSlice";
 
-const login = () => {
+
+const Login = () => {
     const dispatch = useDispatch();
 
-    const handleLogin = () => {
-
+    const handleLogin = (email, password) => {
+        const auth = getAuth();
+        signInWithEmailAndPassword(auth, email, password)
+        .then(console.log)
+        .catch(console.error)
     }
   return (
-    <div>
-      
-    </div>
+   <Form 
+   title="sign in"
+   handleClick={handleLogin}
+   />
   )
 }
 
-export default login
+export  default Login
